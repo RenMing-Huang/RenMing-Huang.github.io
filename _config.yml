@@ -233,7 +233,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: https://www.wenjiangs.com/wp-content/uploads/2020/10/jekyll.png
+avatar: /images/avatar.jpg
 
 
 # Table Of Contents in the Sidebar
