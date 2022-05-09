@@ -1,7 +1,5 @@
----
-title: README
----
-Hi, I'm RenMing Huang, This is {{page.title}}
+
+Hi, I'm RenMing Huang,
 
 
 
