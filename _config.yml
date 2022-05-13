@@ -411,7 +411,7 @@ wildfire:
   wilddog: # your wilddog config goes here ↓
     siteId:
   # other configs
-  theme: light # or dark
+  theme: dark # or light
   locale: en # or other locales, e.g. zh-CN
   defaultAvatarURL: 
 # Any question? 
@@ -455,7 +455,7 @@ gitalk:
 ##  type: button
 
 # Share
-#jiathis:
+jiathis: false
 # Warning: JiaThis does not support https.
 #add_this_id:
 
@@ -493,7 +493,7 @@ duoshuo_info:
 # Facebook SDK Support.
 # https://github.com/iissnan/hexo-theme-next/pull/410
 facebook_sdk:
-  enable: true
+  enable: false
   app_id:       #<app_id>
   fb_admin:     #<user_id>
   like_button:  #true
@@ -503,7 +503,7 @@ facebook_sdk:
 # This plugin depends on Facebook SDK.
 # If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
 facebook_comments_plugin:
-  enable: true
+  enable: false
   num_of_posts: 10  # min posts num is 1
   width: 100%       # default width is 550px
   scheme: light     # default scheme is light (light or dark)
@@ -636,10 +636,10 @@ pace: false
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
-three_waves: false
+three_waves: true
 
 # canvas_lines
 canvas_lines: false
