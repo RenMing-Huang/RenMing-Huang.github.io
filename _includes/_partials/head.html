@@ -2,20 +2,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-<!-- <script type="text/x-mathjax-config"> 
-  MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); 
-</script> -->
-<script type="text/x-mathjax-config">
- MathJax.Hub.Config({tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true
-      }
-    });
-</script>
-
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
-</script>
 {% if site.pace %}
   {% assign pace_css_uri = site.vendors._internal | append: '/pace/'| append: site.pace_theme | append: '.min.css?v=1.0.2' | relative_url %}
   {% assign pace_js_uri = site.vendors._internal | append: '/pace/pace.min.js?v=1.0.2' | relative_url %}
