@@ -446,7 +446,7 @@ gitalk:
   repo: GitalkComments # colingpt.github.io
   owner: RenMing-Huang # colingpt
   admin: RenMing-Huang # colingpt
-  proxy: https://cloudflare-cors-anywhere.renming-huang.workers.dev/https://github.com/login/oauth/access_token
+  proxy: https://cors-anywhere.herokuapp.com/corsdemo/https://github.com/login/oauth/access_token
 
 # Baidu Share
 # Available value:
