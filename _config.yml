@@ -443,7 +443,7 @@ gitalk:
   enable: true
   clientID: "1c289afbe56524e709f3"
   clientSecret: "3c1fa189bb28f26584c27719863ff32fdafbfb87"
-  repo: GitalkComments # colingpt.github.io
+  repo: RenMing-Huang/GitalkComments # colingpt.github.io
   owner: RenMing-Huang # colingpt
   admin: RenMing-Huang # colingpt
   proxy: https://cors-anywhere.herokuapp.com/corsdemo/https://github.com/login/oauth/access_token
