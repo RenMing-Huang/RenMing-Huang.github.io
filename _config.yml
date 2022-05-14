@@ -441,11 +441,11 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID: 1c289afbe56524e709f3
-  clientSecret: 3c1fa189bb28f26584c27719863ff32fdafbfb87
-  repo: RenMing-Huang/GitalkComments # colingpt.github.io
-  owner: RenMing-Huang # colingpt
-  admin: [RenMing-Huang] # colingpt
+  clientID: "1c289afbe56524e709f3"
+  clientSecret: "3c1fa189bb28f26584c27719863ff32fdafbfb87"
+  repo: "RenMing-Huang/GitalkComments" # colingpt.github.io
+  owner: "RenMing-Huang" # colingpt
+  admin: ["RenMing-Huang"] # colingpt
 
 # Baidu Share
 # Available value:
