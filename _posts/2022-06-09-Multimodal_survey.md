@@ -7,9 +7,7 @@ description: 关于多模态的图像编辑与合成的综述，主要描述了�
 comment_title: Multimodal_survey
 ---
 
-
-
-## 《Multimodal Image Synthesis and Editing: A Survey》
+### 《Multimodal Image Synthesis and Editing: A Survey》
 
   Fangneng Zhan, Yingchen Yu, Rongliang Wu, Jiahui Zhang, Shijian Lu
 
