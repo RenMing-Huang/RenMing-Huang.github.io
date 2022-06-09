@@ -2,18 +2,12 @@
 title: A Survey
 categories:
  - article
+tags: [Multimodal, 论文阅读, 综述]
+description: 关于多模态的图像编辑与合成的综述，主要描述了当下的基础与方法，提出了一些挑战
 comment_title: Multimodal_survey
 ---
 
 
-
-title: Multimodal Image Synthesis and Editing: A Survey
-categories:
-
- - article
-tags: [Multimodal, 论文阅读, 综述]
-description: 关于多模态的图像编辑与合成的综述，主要描述了当下的基础与方法，提出了一些挑战
-comment_title: Multimodal_survey
 
 1. ### FOUNDATIONS
 
