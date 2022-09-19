@@ -1,15 +1,13 @@
 ---
-title: 关于我被Gitalk评论插件折磨了一天这件事（解决）
+title: Gitalk评论插件
 categories:
  - 解决问题
 tags: [Gitalk, Error, Solution，Github pages]
-description: Gitalk确实是一个好的评论插件，但是遇到的问题也太令我头痛了，好在没有放弃，都解决了，主要讲了Gitalk的配置以及三个常见的问Error:Not Found、Network Error、Validation Failed。
+description: Gitalk确实是一个好的评论插件
 comment_title: Gitalk Error And Solution
 ---
 
 
-
-事情是这样的，本来前几天弄了一个github pages，然后在浏览模版的时候忽然发现能打开评论功能。我这啥都想要的人怎么能放过这个。然后看了一下，最简单的就是DISQUS，直接把config配置设置为true就能用了？我直接设置部署一气呵成，打开网页一看啥也没有，原来国内被墙了。既然已经知道了能加评论功能，那我是不能放弃的。查来查去，都说Gitalk好，直接用github的issue作为“数据库”就行，于是就开始了我的Gitalk部署之旅。
 
 ### Gitalk部署基本流程
 
@@ -166,11 +164,3 @@ gitalk:
 如果觉得麻烦，也可以使用文章的标题作为id，```id: '{{ page.title }}',```
 
 但是这样你的文章标题就不能超出50个字了（中文标题还好，但是像我读论文会吧论文名加上去，又是英文，就容易超出）。
-
-
-
-最后，我也成为研究生了，研究方向时多模态方向，会在[我的主页](https://renming-huang.github.io/)分享我阅读的论文，希望能和感兴趣的人一起讨论学习，并指出我的错误。
-
-
-
-> 又是一天解决问题（这种坚持是好是坏？），毕业论文还没改完:-(。加油！
