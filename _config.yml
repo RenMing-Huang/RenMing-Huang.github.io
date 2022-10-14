@@ -215,6 +215,7 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 #social:
   #LinkLabel: Link
+  GitHub: https://github.com/RenMing-Huang
 
 
 # Social Links Icons
