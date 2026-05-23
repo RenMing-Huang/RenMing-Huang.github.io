@@ -1,0 +1,31 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+<p style="font-size:0.9em;color:#6b7280;margin-bottom:1.5em;">
+  * denotes equal contribution. See also my
+  <a href="{{ site.author.googlescholar }}" target="_blank" rel="noopener">Google Scholar profile</a>.
+</p>
+
+{% include base_path %}
+
+{% if site.publication_category %}
+  {% for category in site.publication_category %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}{% continue %}{% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr style="border-color:#F8D347;border-width:2px;margin-bottom:1em;" />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}

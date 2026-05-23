@@ -1,0 +1,18 @@
+---
+layout: archive
+title: "Projects"
+permalink: /portfolio/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p style="font-size:0.9em;color:#6b7280;margin-bottom:1.5em;">
+  Selected research and open-source projects. More on
+  <a href="https://github.com/RenMing-Huang" target="_blank" rel="noopener">GitHub</a>.
+</p>
+
+{% for post in site.portfolio reversed %}
+  {% include archive-single.html %}
+{% endfor %}
+

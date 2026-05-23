@@ -1,0 +1,76 @@
+{% include base_path %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: "list" }}__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+
+    <h2 class="archive__item-title" itemprop="headline">
+      {% if post.paperurl %}
+        <a href="{{ post.paperurl }}" target="_blank" rel="noopener">{{ title }}</a>
+      {% elsif post.arxiv %}
+        <a href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener">{{ title }}</a>
+      {% else %}
+        {{ title }}
+      {% endif %}
+    </h2>
+
+    {% if post.authors %}
+      <p class="pub-authors">
+        {% assign author_list = post.authors | split: ", " %}
+        {% for author in author_list %}
+          {% if author contains "Renming Huang" or author contains "R Huang" or author contains "RenMing Huang" %}
+            <span class="author-me">{{ author }}</span>{% unless forloop.last %}, {% endunless %}
+          {% else %}
+            {{ author }}{% unless forloop.last %}, {% endunless %}
+          {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if post.collection == 'publications' %}
+      <p class="pub-venue">
+        <em>{{ post.venue }}</em>
+        {% if post.venue_short %}<span class="venue-badge">{{ post.venue_short }}</span>{% endif %}
+        <span style="color:#9ca3af;font-style:normal;margin-left:0.3em;">{{ post.date | default: "1900-01-01" | date: "%Y" }}</span>
+      </p>
+    {% endif %}
+
+    {% if post.excerpt %}
+      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    {% endif %}
+
+    <div class="pub-links">
+      {% if post.arxiv %}
+        <a class="badge-arxiv" href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener">
+          <i class="fas fa-file-alt"></i> arXiv
+        </a>
+      {% endif %}
+      {% if post.paperurl %}
+        <a class="badge-paper" href="{{ post.paperurl }}" target="_blank" rel="noopener">
+          <i class="fas fa-file-pdf"></i> Paper
+        </a>
+      {% endif %}
+      {% if post.github %}
+        <a class="badge-github" href="{{ post.github }}" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> Code
+        </a>
+      {% endif %}
+      {% if post.project_page %}
+        <a class="badge-project" href="{{ post.project_page }}" target="_blank" rel="noopener">
+          <i class="fas fa-globe"></i> Project
+        </a>
+      {% endif %}
+      {% if post.video %}
+        <a class="badge-video" href="{{ post.video }}" target="_blank" rel="noopener">
+          <i class="fas fa-play-circle"></i> Video
+        </a>
+      {% endif %}
+    </div>
+
+  </article>
+</div>

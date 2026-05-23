@@ -1,0 +1,22 @@
+/* ==========================================================================
+   RENMING THEME — DARK
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --global-bg-color                   : #0f172a;
+    --global-footer-bg-color            : #1e293b;
+    --global-border-color               : #334155;
+    --global-dark-border-color          : #475569;
+    --global-code-background-color      : #1e293b;
+    --global-code-text-color            : #e2e8f0;
+    --global-link-color                 : #93c5fd;
+    --global-link-color-hover           : #F8D347;
+    --global-link-color-visited         : #a78bfa;
+    --global-masthead-link-color        : rgba(255,255,255,0.9);
+    --global-masthead-link-color-hover  : #F8D347;
+    --global-text-color                 : #e2e8f0;
+    --global-text-color-light           : #94a3b8;
+    --global-thead-color                : #1e293b;
+  }
+}

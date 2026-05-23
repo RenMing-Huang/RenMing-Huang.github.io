@@ -1,0 +1,287 @@
+/* ==========================================================================
+   CUSTOM MODERN OVERRIDES — Renming Huang Academic Page
+   ========================================================================== */
+
+/* --- Global typography --- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Masthead: dark navy bar --- */
+.masthead {
+  background: #1A3A5A !important;
+  border-bottom: 3px solid #F8D347 !important;
+
+  &::after { display: none; }
+
+  &__inner-wrap {
+    padding: 0 1.5em;
+  }
+}
+
+.site-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 1.1em !important;
+  letter-spacing: -0.01em;
+  &:hover { color: #F8D347 !important; text-decoration: none; }
+}
+
+.masthead__menu-item {
+  background: transparent !important;
+  a {
+    color: rgba(255,255,255,0.88) !important;
+    font-weight: 500;
+    font-size: 0.9em;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    &:hover {
+      color: #F8D347 !important;
+      background: rgba(248,211,71,0.12) !important;
+    }
+  }
+}
+
+/* Mobile nav toggle */
+.navicon-button .navicon,
+.navicon-button .navicon::before,
+.navicon-button .navicon::after {
+  background: #ffffff;
+}
+
+/* --- Sidebar profile --- */
+.sidebar .author__name {
+  font-weight: 700;
+  font-size: 1.15em;
+  color: #1A3A5A;
+}
+
+.sidebar .author__bio {
+  font-size: 0.88em;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.author__urls a {
+  font-size: 0.85em;
+  color: #1A3A5A;
+  &:hover { color: #F8D347; }
+}
+
+/* Avatar: circular with gold ring */
+.author__avatar img {
+  border-radius: 50% !important;
+  border: 3px solid #F8D347 !important;
+  padding: 0 !important;
+  box-shadow: 0 0 0 4px rgba(248,211,71,0.2);
+}
+
+/* --- Links --- */
+a {
+  color: #1A3A5A;
+  &:hover { color: #c9a800; }
+  &:visited { color: #2a5a8a; }
+}
+
+/* --- Page headings --- */
+.page__title {
+  font-weight: 700;
+  color: #1A3A5A;
+  font-size: 1.6em;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3 {
+  color: #1A3A5A;
+  font-weight: 600;
+}
+
+/* Section divider line with gold accent */
+.page__content h2 {
+  border-bottom: 2px solid #F8D347;
+  padding-bottom: 0.4em;
+  margin-top: 2em;
+}
+
+/* --- Publication cards --- */
+.archive__item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25em 1.5em;
+  margin-bottom: 1em;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(26,58,90,0.10);
+    border-color: #F8D347;
+  }
+}
+
+.archive__item-title {
+  font-size: 1em !important;
+  font-weight: 600 !important;
+  margin: 0 0 0.35em 0 !important;
+  line-height: 1.4;
+
+  a {
+    color: #1A3A5A !important;
+    &:hover { color: #c9a800 !important; }
+  }
+}
+
+.pub-authors {
+  font-size: 0.86em;
+  color: #6b7280;
+  margin: 0 0 0.3em 0;
+  line-height: 1.5;
+
+  .author-me {
+    color: #1A3A5A;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #F8D347;
+    text-underline-offset: 2px;
+  }
+}
+
+.pub-venue {
+  font-size: 0.84em;
+  color: #374151;
+  font-style: italic;
+  margin: 0 0 0.6em 0;
+
+  .venue-badge {
+    display: inline-block;
+    background: rgba(26,58,90,0.08);
+    color: #1A3A5A;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.88em;
+    padding: 0.1em 0.5em;
+    border-radius: 4px;
+    margin-left: 0.3em;
+  }
+}
+
+/* Publication link badges */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-top: 0.5em;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    padding: 0.2em 0.65em;
+    border-radius: 20px;
+    font-size: 0.78em;
+    font-weight: 500;
+    text-decoration: none !important;
+    border: 1.5px solid currentColor;
+    transition: all 0.15s ease;
+
+    &.badge-arxiv {
+      color: #b91c1c;
+      &:hover { background: #b91c1c; color: #fff; }
+    }
+    &.badge-paper {
+      color: #1A3A5A;
+      &:hover { background: #1A3A5A; color: #fff; }
+    }
+    &.badge-github {
+      color: #374151;
+      &:hover { background: #374151; color: #fff; }
+    }
+    &.badge-project {
+      color: #059669;
+      &:hover { background: #059669; color: #fff; }
+    }
+    &.badge-video {
+      color: #7c3aed;
+      &:hover { background: #7c3aed; color: #fff; }
+    }
+  }
+}
+
+/* --- News section --- */
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    gap: 1em;
+    padding: 0.6em 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.9em;
+
+    &:last-child { border-bottom: none; }
+
+    .news-date {
+      min-width: 90px;
+      color: #9ca3af;
+      font-size: 0.85em;
+      padding-top: 0.05em;
+    }
+
+    .news-tag {
+      display: inline-block;
+      padding: 0.05em 0.5em;
+      border-radius: 4px;
+      font-size: 0.75em;
+      font-weight: 600;
+      margin-right: 0.4em;
+
+      &.tag-paper  { background: #fef3c7; color: #92400e; }
+      &.tag-award  { background: #fce7f3; color: #9d174d; }
+      &.tag-talk   { background: #ede9fe; color: #5b21b6; }
+      &.tag-misc   { background: #d1fae5; color: #065f46; }
+    }
+  }
+}
+
+/* --- Bio intro section --- */
+.bio-intro {
+  font-size: 0.95em;
+  line-height: 1.75;
+  color: #374151;
+  margin-bottom: 1.5em;
+}
+
+/* --- Research interest chips --- */
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0.75em 0 1.5em;
+
+  .tag {
+    background: rgba(248,211,71,0.2);
+    border: 1.5px solid #F8D347;
+    color: #1A3A5A;
+    font-size: 0.82em;
+    font-weight: 500;
+    padding: 0.25em 0.75em;
+    border-radius: 20px;
+  }
+}
+
+/* --- Footer --- */
+.page__footer {
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  color: #9ca3af;
+  font-size: 0.8em;
+}
+
+/* --- Scrollbar (subtle) --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }

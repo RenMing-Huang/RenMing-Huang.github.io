@@ -1,0 +1,48 @@
+/* ==========================================================================
+   RENMING THEME — LIGHT
+   Primary: #1A3A5A (dark navy)
+   Accent:  #F8D347 (golden yellow)
+   ========================================================================== */
+
+$primary-color              : #1A3A5A;
+$accent-color               : #F8D347;
+$gray                       : #6b7280;
+$dark-gray                  : #374151;
+$darker-gray                : #1f2937;
+$light-gray                 : #9ca3af;
+$lighter-gray               : #f3f4f6;
+
+$danger-color               : #ef4444;
+$info-color                 : #1A3A5A;
+$notice-color               : #6b7280;
+$success-color              : #10b981;
+$warning-color              : #f59e0b;
+
+$border-radius              : 8px;
+$box-shadow                 : 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+$global-transition          : all 0.2s ease-in-out;
+$masthead-height            : 64px;
+$navicon-width              : 24px;
+$navicon-height              : 3px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+:root {
+    --global-base-color                 : #{$primary-color};
+    --global-accent-color               : #{$accent-color};
+    --global-bg-color                   : #ffffff;
+    --global-footer-bg-color            : #f9fafb;
+    --global-border-color               : #e5e7eb;
+    --global-dark-border-color          : #d1d5db;
+    --global-code-background-color      : #f8fafc;
+    --global-code-text-color            : #{$dark-gray};
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #{$primary-color};
+    --global-link-color-hover           : #F8D347;
+    --global-link-color-visited         : #2a5a8a;
+    --global-masthead-link-color        : rgba(255,255,255,0.9);
+    --global-masthead-link-color-hover  : #F8D347;
+    --global-text-color                 : #{$dark-gray};
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #{$lighter-gray};
+}
