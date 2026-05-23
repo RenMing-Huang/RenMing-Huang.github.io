@@ -8,5 +8,7 @@ date: 2024-09-01
 venue: "European Conference on Computer Vision"
 venue_short: "ECCV 2024"
 arxiv: "2407.16142"
+featured: true
 excerpt: "We leverage diffusion models as trajectory optimizers for offline reinforcement learning, achieving efficient planning by treating diffusion sampling as an optimization process."
+poster: "/images/poster/pub-td.png"
 ---

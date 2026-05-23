@@ -11,10 +11,13 @@ repository               : "RenMing-Huang/RenMing-Huang.github.io"
 
 # Site Author
 author:
-  avatar           : "profile.jpg"
+  avatar           : "profile.png"
   name             : "Renming Huang"
   pronouns         :
-  bio              : "Researcher in Robotics, Reinforcement Learning, and Task Planning."
+  bio              : "Researcher in Robotics, Reinforcement Learning"
+  interests:
+    - "Robotics"
+    - "Reinforcement Learning"
   location         : "Shanghai, China"
   employer         : "Shanghai Jiao Tong University"
   uri              :

@@ -8,5 +8,7 @@ date: 2024-11-01
 venue: "Conference on Robot Learning"
 venue_short: "CoRL 2024"
 arxiv: "2409.03996"
+featured: true
 excerpt: "We propose a subgoal-guided imitation learning framework that enables goal-reaching policy learning from non-expert, suboptimal observations without requiring expert demonstrations."
+poster: "/images/poster/pub-egrpo.png"
 ---

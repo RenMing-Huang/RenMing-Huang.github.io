@@ -17,7 +17,16 @@
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    {% if author.bio %}
+      {% assign bio_text = author.bio %}
+      {% if author.interests %}
+        {% for interest in author.interests %}
+          {% assign wrapped = '<span class="interest-highlight">' | append: interest | append: '</span>' %}
+          {% assign bio_text = bio_text | replace: interest, wrapped %}
+        {% endfor %}
+      {% endif %}
+      <p class="author__bio">{{ bio_text }}</p>
+    {% endif %}
   </div>
 
   <div class="author__urls-wrapper">

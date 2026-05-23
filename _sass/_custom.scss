@@ -2,22 +2,75 @@
    CUSTOM MODERN OVERRIDES — Renming Huang Academic Page
    ========================================================================== */
 
-/* --- Global typography --- */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Masthead: dark navy bar --- */
+/* ==========================================================================
+   TOP NAVIGATION PROGRESS BAR
+   ========================================================================== */
+
+#np-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  opacity: 0;
+  z-index: 99999;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(90deg, #F8D347 0%, #fbbf24 60%, #fff176 100%);
+  box-shadow: 0 0 10px rgba(248, 211, 71, 0.7), 0 0 4px rgba(248, 211, 71, 0.5);
+}
+
+/* ==========================================================================
+   PAGE CONTENT ENTRY ANIMATION
+   ========================================================================== */
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#page-content {
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL
+   ========================================================================== */
+
+.sr {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sr-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ==========================================================================
+   MASTHEAD
+   ========================================================================== */
+
 .masthead {
   background: #1A3A5A !important;
   border-bottom: 3px solid #F8D347 !important;
+  transition: box-shadow 0.3s ease !important;
 
   &::after { display: none; }
 
-  &__inner-wrap {
-    padding: 0 1.5em;
+  &__inner-wrap { padding: 0 1.5em; }
+
+  &--scrolled {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22),
+                0 1px 0 rgba(248, 211, 71, 0.25) !important;
   }
 }
 
@@ -26,33 +79,84 @@ body {
   font-weight: 700 !important;
   font-size: 1.1em !important;
   letter-spacing: -0.01em;
+  transition: color 0.15s ease !important;
   &:hover { color: #F8D347 !important; text-decoration: none; }
 }
 
 .masthead__menu-item {
   background: transparent !important;
+  position: relative;
+
   a {
-    color: rgba(255,255,255,0.88) !important;
+    color: rgba(255, 255, 255, 0.88) !important;
     font-weight: 500;
     font-size: 0.9em;
     padding: 0.5em 0.75em;
     border-radius: 6px;
-    transition: all 0.15s ease;
+    transition: color 0.15s ease, background 0.15s ease !important;
     &:hover {
       color: #F8D347 !important;
-      background: rgba(248,211,71,0.12) !important;
+      background: rgba(248, 211, 71, 0.12) !important;
     }
+  }
+
+  // Selected: golden text + small underline bar on the <li>, not the <a>
+  &.selected a,
+  &.selected a:hover {
+    color: #F8D347 !important;
+    background: rgba(248, 211, 71, 0.1) !important;
+    font-weight: 700 !important;
+  }
+
+  &.selected::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 3px;
+    background: #F8D347;
+    border-radius: 2px;
   }
 }
 
-/* Mobile nav toggle */
 .navicon-button .navicon,
 .navicon-button .navicon::before,
 .navicon-button .navicon::after {
   background: #ffffff;
 }
 
-/* --- Sidebar profile --- */
+/* ==========================================================================
+   AVATAR — gold ring
+   ========================================================================== */
+
+.author__avatar img {
+  border-radius: 50% !important;
+  border: 3px solid #F8D347 !important;
+  padding: 0 !important;
+  box-shadow: 0 0 0 4px rgba(248, 211, 71, 0.22);
+  transition: box-shadow 0.3s ease !important;
+  margin-top: 0 !important;
+
+  &:hover {
+    box-shadow: 0 0 0 6px rgba(248, 211, 71, 0.4);
+  }
+}
+
+.author__avatar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ==========================================================================
+   SIDEBAR PROFILE
+   ========================================================================== */
+
+.sidebar {
+  padding-top: 52px !important;
+}
+
 .sidebar .author__name {
   font-weight: 700;
   font-size: 1.15em;
@@ -68,25 +172,25 @@ body {
 .author__urls a {
   font-size: 0.85em;
   color: #1A3A5A;
+  transition: color 0.15s ease;
   &:hover { color: #F8D347; }
 }
 
-/* Avatar: circular with gold ring */
-.author__avatar img {
-  border-radius: 50% !important;
-  border: 3px solid #F8D347 !important;
-  padding: 0 !important;
-  box-shadow: 0 0 0 4px rgba(248,211,71,0.2);
-}
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
 
-/* --- Links --- */
 a {
   color: #1A3A5A;
-  &:hover { color: #c9a800; }
+  transition: color 0.15s ease;
+  &:hover   { color: #c9a800; }
   &:visited { color: #2a5a8a; }
 }
 
-/* --- Page headings --- */
+/* ==========================================================================
+   HEADINGS
+   ========================================================================== */
+
 .page__title {
   font-weight: 700;
   color: #1A3A5A;
@@ -99,25 +203,117 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-/* Section divider line with gold accent */
 .page__content h2 {
   border-bottom: 2px solid #F8D347;
   padding-bottom: 0.4em;
   margin-top: 2em;
 }
 
-/* --- Publication cards --- */
+/* ==========================================================================
+   PUBLICATION CARD — poster + info layout
+   ========================================================================== */
+
+.pub-layout {
+  display: flex;
+  gap: 1.25em;
+  align-items: flex-start;
+}
+
+.pub-poster {
+  flex: 0 0 200px;
+  width: 200px;
+
+  &__img-wrap {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 150px;
+    border-radius: 6px;
+    border: 1.5px dashed #cbd5e1;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #94a3b8;
+    font-size: 0.72em;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    cursor: default;
+    transition: border-color 0.2s ease, background 0.2s ease;
+
+    svg {
+      width: 80px;
+      height: auto;
+      opacity: 0.7;
+    }
+
+    &:hover {
+      border-color: #F8D347;
+      background: rgba(248, 211, 71, 0.05);
+    }
+  }
+}
+
+.pub-info {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .pub-layout {
+    flex-direction: column;
+  }
+
+  .pub-poster {
+    width: 100%;
+    flex: none;
+
+    &__img-wrap, &__placeholder {
+      height: 160px;
+    }
+  }
+}
+
+/* ==========================================================================
+   PUBLICATION / ARCHIVE CARDS
+   ========================================================================== */
+
 .archive__item {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 1.25em 1.5em;
   margin-bottom: 1em;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(26,58,90,0.10);
+    box-shadow: 0 6px 20px rgba(26, 58, 90, 0.12);
     border-color: #F8D347;
+    transform: translateY(-2px);
   }
 }
 
@@ -129,6 +325,7 @@ h1, h2, h3 {
 
   a {
     color: #1A3A5A !important;
+    transition: color 0.15s ease;
     &:hover { color: #c9a800 !important; }
   }
 }
@@ -152,22 +349,50 @@ h1, h2, h3 {
   font-size: 0.84em;
   color: #374151;
   font-style: italic;
-  margin: 0 0 0.6em 0;
+  margin: 0 0 0.4em 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35em;
 
   .venue-badge {
     display: inline-block;
-    background: rgba(26,58,90,0.08);
+    background: #F8D347;
     color: #1A3A5A;
     font-style: normal;
-    font-weight: 500;
-    font-size: 0.88em;
+    font-weight: 600;
+    font-size: 0.85em;
     padding: 0.1em 0.5em;
     border-radius: 4px;
-    margin-left: 0.3em;
+    letter-spacing: 0.01em;
+  }
+
+  .archive__item-excerpt {
+    font-style: normal;
+    color: #9ca3af;
+    font-size: 0.97em;
   }
 }
 
-/* Publication link badges */
+.pub-inline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  padding: 0.15em 0.55em;
+  border-radius: 20px;
+  font-size: 0.82em;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none !important;
+  border: 1.5px solid currentColor;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &.badge-arxiv   { color: #b91c1c; &:hover { background: #b91c1c; color: #fff; } }
+  &.badge-paper   { color: #1A3A5A; &:hover { background: #1A3A5A; color: #fff; } }
+  &.badge-github  { color: #374151; &:hover { background: #374151; color: #fff; } }
+  &.badge-video   { color: #7c3aed; &:hover { background: #7c3aed; color: #fff; } }
+}
+
 .pub-links {
   display: flex;
   flex-wrap: wrap;
@@ -184,32 +409,20 @@ h1, h2, h3 {
     font-weight: 500;
     text-decoration: none !important;
     border: 1.5px solid currentColor;
-    transition: all 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
 
-    &.badge-arxiv {
-      color: #b91c1c;
-      &:hover { background: #b91c1c; color: #fff; }
-    }
-    &.badge-paper {
-      color: #1A3A5A;
-      &:hover { background: #1A3A5A; color: #fff; }
-    }
-    &.badge-github {
-      color: #374151;
-      &:hover { background: #374151; color: #fff; }
-    }
-    &.badge-project {
-      color: #059669;
-      &:hover { background: #059669; color: #fff; }
-    }
-    &.badge-video {
-      color: #7c3aed;
-      &:hover { background: #7c3aed; color: #fff; }
-    }
+    &.badge-arxiv   { color: #b91c1c; &:hover { background: #b91c1c; color: #fff; } }
+    &.badge-paper   { color: #1A3A5A; &:hover { background: #1A3A5A; color: #fff; } }
+    &.badge-github  { color: #374151; &:hover { background: #374151; color: #fff; } }
+    &.badge-project { color: #059669; &:hover { background: #059669; color: #fff; } }
+    &.badge-video   { color: #7c3aed; &:hover { background: #7c3aed; color: #fff; } }
   }
 }
 
-/* --- News section --- */
+/* ==========================================================================
+   NEWS SECTION
+   ========================================================================== */
+
 .news-list {
   list-style: none;
   padding: 0;
@@ -239,15 +452,18 @@ h1, h2, h3 {
       font-weight: 600;
       margin-right: 0.4em;
 
-      &.tag-paper  { background: #fef3c7; color: #92400e; }
-      &.tag-award  { background: #fce7f3; color: #9d174d; }
-      &.tag-talk   { background: #ede9fe; color: #5b21b6; }
-      &.tag-misc   { background: #d1fae5; color: #065f46; }
+      &.tag-paper { background: #fef3c7; color: #92400e; }
+      &.tag-award { background: #fce7f3; color: #9d174d; }
+      &.tag-talk  { background: #ede9fe; color: #5b21b6; }
+      &.tag-misc  { background: #d1fae5; color: #065f46; }
     }
   }
 }
 
-/* --- Bio intro section --- */
+/* ==========================================================================
+   BIO + INTEREST TAGS
+   ========================================================================== */
+
 .bio-intro {
   font-size: 0.95em;
   line-height: 1.75;
@@ -255,7 +471,6 @@ h1, h2, h3 {
   margin-bottom: 1.5em;
 }
 
-/* --- Research interest chips --- */
 .interest-tags {
   display: flex;
   flex-wrap: wrap;
@@ -263,17 +478,42 @@ h1, h2, h3 {
   margin: 0.75em 0 1.5em;
 
   .tag {
-    background: rgba(248,211,71,0.2);
+    background: rgba(248, 211, 71, 0.2);
     border: 1.5px solid #F8D347;
     color: #1A3A5A;
     font-size: 0.82em;
     font-weight: 500;
     padding: 0.25em 0.75em;
     border-radius: 20px;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      background: rgba(248, 211, 71, 0.38);
+      box-shadow: 0 2px 8px rgba(248, 211, 71, 0.35);
+    }
   }
 }
 
-/* --- Footer --- */
+/* ==========================================================================
+   SIDEBAR INTEREST HIGHLIGHT
+   ========================================================================== */
+
+.interest-highlight {
+  display: inline-block;
+  white-space: nowrap;
+  background: #F8D347;
+  color: #1A3A5A;
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 .page__footer {
   background: #f9fafb;
   border-top: 1px solid #e5e7eb;
@@ -281,7 +521,14 @@ h1, h2, h3 {
   font-size: 0.8em;
 }
 
-/* --- Scrollbar (subtle) --- */
+/* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+  &:hover { background: #9ca3af; }
+}

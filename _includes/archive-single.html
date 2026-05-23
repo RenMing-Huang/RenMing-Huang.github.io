@@ -9,68 +9,77 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
 
-    <h2 class="archive__item-title" itemprop="headline">
-      {% if post.paperurl %}
-        <a href="{{ post.paperurl }}" target="_blank" rel="noopener">{{ title }}</a>
-      {% elsif post.arxiv %}
-        <a href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener">{{ title }}</a>
-      {% else %}
-        {{ title }}
-      {% endif %}
-    </h2>
+    <div class="pub-layout">
 
-    {% if post.authors %}
-      <p class="pub-authors">
-        {% assign author_list = post.authors | split: ", " %}
-        {% for author in author_list %}
-          {% if author contains "Renming Huang" or author contains "R Huang" or author contains "RenMing Huang" %}
-            <span class="author-me">{{ author }}</span>{% unless forloop.last %}, {% endunless %}
+      <!-- Poster / teaser image -->
+      <div class="pub-poster">
+        {% if post.poster %}
+          <div class="pub-poster__img-wrap">
+            <img src="{{ post.poster }}" alt="{{ title }} poster" loading="lazy">
+          </div>
+        {% else %}
+          <div class="pub-poster__placeholder">
+            <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+              <rect width="120" height="80" fill="#f1f5f9" rx="4"/>
+              <rect x="14" y="14" width="92" height="52" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 3" rx="3"/>
+              <rect x="22" y="22" width="76" height="36" fill="#e2e8f0" rx="2"/>
+              <rect x="28" y="28" width="64" height="6" fill="#94a3b8" rx="2"/>
+              <rect x="28" y="38" width="48" height="4" fill="#cbd5e1" rx="2"/>
+              <rect x="28" y="46" width="55" height="4" fill="#cbd5e1" rx="2"/>
+            </svg>
+            <span>Poster</span>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Paper info -->
+      <div class="pub-info">
+
+        <h2 class="archive__item-title" itemprop="headline">
+          {% if post.paperurl %}
+            <a href="{{ post.paperurl }}" target="_blank" rel="noopener">{{ title }}</a>
+          {% elsif post.arxiv %}
+            <a href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener">{{ title }}</a>
           {% else %}
-            {{ author }}{% unless forloop.last %}, {% endunless %}
+            {{ title }}
           {% endif %}
-        {% endfor %}
-      </p>
-    {% endif %}
+        </h2>
 
-    {% if post.collection == 'publications' %}
-      <p class="pub-venue">
-        <em>{{ post.venue }}</em>
-        {% if post.venue_short %}<span class="venue-badge">{{ post.venue_short }}</span>{% endif %}
-        <span style="color:#9ca3af;font-style:normal;margin-left:0.3em;">{{ post.date | default: "1900-01-01" | date: "%Y" }}</span>
-      </p>
-    {% endif %}
+        {% if post.authors %}
+          <p class="pub-authors">
+            {% assign author_list = post.authors | split: ", " %}
+            {% for author in author_list %}
+              {% if author contains "Renming Huang" or author contains "R Huang" or author contains "RenMing Huang" %}
+                <span class="author-me">{{ author }}</span>{% unless forloop.last %}, {% endunless %}
+              {% else %}
+                {{ author }}{% unless forloop.last %}, {% endunless %}
+              {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
 
-    {% if post.excerpt %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% endif %}
+        {% if post.collection == 'publications' %}
+          <p class="pub-venue">
+            <em>{{ post.venue }}</em>
+            {% if post.venue_short %}<span class="venue-badge">{{ post.venue_short }}</span>{% endif %}
+            {% if post.arxiv %}
+              <a class="badge-arxiv pub-inline-badge" href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> arXiv</a>
+            {% endif %}
+            {% if post.paperurl %}
+              <a class="badge-paper pub-inline-badge" href="{{ post.paperurl }}" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Paper</a>
+            {% endif %}
+            {% if post.github %}
+              <a class="badge-github pub-inline-badge" href="{{ post.github }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+            {% endif %}
+            {% if post.video %}
+              <a class="badge-video pub-inline-badge" href="{{ post.video }}" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Video</a>
+            {% endif %}
+            {% if post.excerpt %}<span class="archive__item-excerpt" itemprop="description"> — {{ post.excerpt }}</span>{% endif %}
+          </p>
+        {% endif %}
 
-    <div class="pub-links">
-      {% if post.arxiv %}
-        <a class="badge-arxiv" href="https://arxiv.org/abs/{{ post.arxiv }}" target="_blank" rel="noopener">
-          <i class="fas fa-file-alt"></i> arXiv
-        </a>
-      {% endif %}
-      {% if post.paperurl %}
-        <a class="badge-paper" href="{{ post.paperurl }}" target="_blank" rel="noopener">
-          <i class="fas fa-file-pdf"></i> Paper
-        </a>
-      {% endif %}
-      {% if post.github %}
-        <a class="badge-github" href="{{ post.github }}" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i> Code
-        </a>
-      {% endif %}
-      {% if post.project_page %}
-        <a class="badge-project" href="{{ post.project_page }}" target="_blank" rel="noopener">
-          <i class="fas fa-globe"></i> Project
-        </a>
-      {% endif %}
-      {% if post.video %}
-        <a class="badge-video" href="{{ post.video }}" target="_blank" rel="noopener">
-          <i class="fas fa-play-circle"></i> Video
-        </a>
-      {% endif %}
-    </div>
+      </div><!-- .pub-info -->
+    </div><!-- .pub-layout -->
 
   </article>
 </div>
