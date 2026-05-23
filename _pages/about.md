@@ -32,7 +32,11 @@ I am a researcher at <strong>Shanghai Jiao Tong University (SJTU)</strong>, work
     <span>
       <span class="news-tag {{ tag_class }}">{{ tag_label }}</span>
       <strong>{{ pub.title }}</strong>
-      {% if pub.venue_short %} accepted at <strong>{{ pub.venue_short }}</strong>.{% endif %}
+      {% if pub.category == 'preprints' %}
+        posted on <strong>{{ pub.venue_short }}</strong>.
+      {% elsif pub.venue_short %}
+        accepted at <strong>{{ pub.venue_short }}</strong>.
+      {% endif %}
     </span>
   </li>
 {% endfor %}
